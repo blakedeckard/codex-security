@@ -181,6 +181,7 @@ jobs:
   native:
     needs: source
     if: needs.source.outputs.wolfi != 'true' && needs.source.outputs.existing-digest == ''
+    cache-mode: none
     uses: ./.github/workflows/native-artifacts.yml
     with:
       ref: ${{ needs.source.outputs.sha }}
